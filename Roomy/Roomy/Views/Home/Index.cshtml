@@ -1,0 +1,29 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div>
+        <h1>Accueil</h1>
+        @*
+        <a href="~/a-propos">A propros</a>
+        *@
+
+        <br />
+        @Html.ActionLink("A propos", "About", "Home")
+        <br />
+        <a href="@Url.Action("About", "Home")"><span>A propros</span></a>
+        <br />
+        <a href="@Url.RouteUrl("AboutRoute")"><span>A propros</span></a>
+
+    </div>
+</body>
+</html>

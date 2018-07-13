@@ -16,7 +16,7 @@ namespace Roomy
         {
             // Code qui s’exécute au démarrage de l’application
             AreaRegistration.RegisterAllAreas();
-            GlobalConfiguration.Configure(WebApiConfig.Register);
+            //GlobalConfiguration.Configure(WebApiConfig.Register);
             RouteConfig.RegisterRoutes(RouteTable.Routes);            
         }
     }

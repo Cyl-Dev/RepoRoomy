@@ -1,0 +1,35 @@
+﻿
+@model List<string>
+
+@{
+    Layout = null;
+    int i = 0;
+    i++;
+
+
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div> 
+        <h1>Test @i</h1>
+        
+
+        <ul>
+            @foreach (var item in Model)
+            {
+                <li>@item</li>
+            }
+
+
+        </ul>
+
+    </div>
+</body>
+</html>

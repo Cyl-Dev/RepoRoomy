@@ -11,5 +11,6 @@ namespace Roomy.Models
         [Required(ErrorMessage = "Nom obligatoire")]
         [StringLength(15, ErrorMessage = "Trop long")]
         public string Label { get; set; }
+
     }
 }

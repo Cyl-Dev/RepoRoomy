@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Roomy.Models;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
@@ -12,5 +13,10 @@ namespace Roomy.Data
         {
 
         }
+
+        public DbSet<User> Users { get; set; }
+
+        public DbSet<Civility> Civilities { get; set; }
+
     }
 }

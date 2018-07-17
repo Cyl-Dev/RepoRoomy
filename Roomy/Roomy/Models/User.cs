@@ -18,8 +18,8 @@ namespace Roomy.Models
 
         [Display(Name = "Email")]
         [RegularExpression(@"^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}" +
-@"\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\" +
-@".)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$",
+                           @"\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\" +
+                           @".)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$",
 ErrorMessage = "L'adresse mail n'est pas au bon format")]
 
         public string Mail { get; set; }
@@ -33,7 +33,8 @@ ErrorMessage = "L'adresse mail n'est pas au bon format")]
         [Required(ErrorMessage = "Le champ {0} est obligatoire")]
         [Display(Name = "Mot de passe")]
         [DataType(DataType.Password)]
-/*        [RegularExpression(@"^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[-+!*$@%_])([-+!*$@% _\w]{8,15})$", ErrorMessage = "Le PW n'est pas au bon format")]*/
+        [RegularExpression(@"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^\da-zA-Z]).{6,}$",
+ErrorMessage = "{0} incorrect.")]
         public string Password { get; set; }
 
         [Display(Name = "Confirmer le mot de passe")]

@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-
+using Roomy.Utils;
 
 
 namespace Roomy.Controllers
@@ -49,12 +49,15 @@ namespace Roomy.Controllers
         [HttpPost]
         public ActionResult Create(User user)
         {
+
             if (ModelState.IsValid)
             {
+                db.Configuration.ValidateOnSaveEnabled = false;
+                user.Password = user.Password.HashMD5();
+           
                 // enregister
                 db.Users.Add(user);
                 db.SaveChanges();
-
             }
 
             ViewBag.Civilities = db.Civilities.ToList();

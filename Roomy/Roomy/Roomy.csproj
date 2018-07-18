@@ -176,11 +176,19 @@
     <Compile Include="Migrations\201807171311444_Init.Designer.cs">
       <DependentUpon>201807171311444_Init.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201807180822148_AbandonnerColonneCorfirmedPassword.cs" />
+    <Compile Include="Migrations\201807180822148_AbandonnerColonneCorfirmedPassword.Designer.cs">
+      <DependentUpon>201807180822148_AbandonnerColonneCorfirmedPassword.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\BaseModel.cs" />
     <Compile Include="Models\Civility.cs" />
+    <Compile Include="Models\Room.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utils\Extensions.cs" />
+    <Compile Include="Utils\Validators\EmailUnique.cs" />
+    <Compile Include="Utils\Validators\Major.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config">
@@ -224,6 +232,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201807171311444_Init.resx">
       <DependentUpon>201807171311444_Init.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807180822148_AbandonnerColonneCorfirmedPassword.resx">
+      <DependentUpon>201807180822148_AbandonnerColonneCorfirmedPassword.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

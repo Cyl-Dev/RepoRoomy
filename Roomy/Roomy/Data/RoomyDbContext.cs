@@ -18,5 +18,6 @@ namespace Roomy.Data
 
         public DbSet<Civility> Civilities { get; set; }
 
+        public DbSet<Room> Rooms { get; set; }
     }
 }

@@ -11,6 +11,7 @@
     <title>BackOffice | @ViewBag.Title</title>
 
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/font-awesome.min.css" rel="stylesheet" />
     <link href="~/Content/roomy.css" rel="stylesheet" />
 </head>
 <body>
@@ -31,6 +32,24 @@
                         <a class="nav-link" href="@Url.Action("Index", "dashboard")">BackOffice<span class="sr-only">(current)</span></a>
                     </li>
 
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" id=" navbarDrowpdown" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Salle <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="@Url.Action("Index", "Rooms")">Voir les salles</a></li>
+                            <li><a href="@Url.Action("Index", "Categories")">Voir les catégories</a></li>
+                            <li><a href="@Url.Action("Create", "Rooms")">Ajouter</a></li>
+                            @*<li role="separator" class="divider"></li>*@
+                        </ul>
+                    </li>
+
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" id=" navbarDrowpdown" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Categorie <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="@Url.Action("Index", "Categories")">Voir les categories</a></li>
+                            <li><a href="@Url.Action("Create", "Categories")">Ajouter Categorie</a></li>
+                        </ul>
+                    </li>
+
                     <li class="nav-item">
                         <a class="nav-link" href="@Url.Action("Create", "Users")">Nouvel utilisateur</a>
                     </li>
@@ -46,7 +65,7 @@
 
         <br />
         <footer class="bg-info text-white">
-            &copy; <s>POEC</s> Formation standard BackOffice Rouen 2018
+            &copy; <s>POEC</s> Formation tout court - Rouen 2018
         </footer>
 
 
@@ -56,6 +75,8 @@
     <script src="~/Scripts/jquery-3.0.0.min.js"></script>
     <script src="~/Scripts/popper.min.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
     @RenderSection("SectionScripts", false)
 
 </body>

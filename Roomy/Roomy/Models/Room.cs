@@ -52,5 +52,8 @@ namespace Roomy.Models
         [ForeignKey("UserID")]
         public User User { get; set; }
 
-    }
+
+        public ICollection<RoomFile> Files { get; set; }
+
+}
 }

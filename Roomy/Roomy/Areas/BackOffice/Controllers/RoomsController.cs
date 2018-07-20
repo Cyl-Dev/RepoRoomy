@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -73,13 +74,23 @@ namespace Roomy.Areas.BackOffice.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Room room = db.Rooms.Find(id);
+            // var rooms = db.Rooms.Include(x => x.Files).SingleOrDefault(x => x.ID == id);
+            // Room room = db.Rooms.Find(id);
+
+            Room room = db.Rooms.Include(x => x.Files).SingleOrDefault(x => x.ID == id);
+
             if (room == null)
             {
                 return HttpNotFound();
             }
             ViewBag.UserID = new SelectList(db.Users, "ID", "LastName", room.UserID);
             ViewBag.CategoryID = new SelectList(db.Categories, "ID", "Name", room.CategoryID);
+
+
+            //room.Files = rf.ToList();
+
+
+
             return View(room);
         }
 
@@ -102,6 +113,9 @@ namespace Roomy.Areas.BackOffice.Controllers
             }
             ViewBag.UserID = new SelectList(db.Users, "ID", "LastName", room.UserID);
             ViewBag.CategoryID = new SelectList(db.Categories, "ID", "Name", room.CategoryID);
+
+            // ViewBag.Files = new SelectList(db.RoomFiles, "ID", "Name", room.CategoryID);
+
             return View(room);
         }
 
@@ -130,6 +144,46 @@ namespace Roomy.Areas.BackOffice.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        [HttpPost]
+        public ActionResult AddFile(int id, HttpPostedFileBase upload)
+        {
+            if (upload.ContentLength > 0)
+            { 
+
+            var model = new RoomFile();
+
+            model.RoomID = id;
+            model.Name = upload.FileName;
+            model.ContentType = upload.ContentType;
+
+            using (var reader = new BinaryReader(upload.InputStream) )
+            {
+                model.Content = reader.ReadBytes(upload.ContentLength);
+            }
+
+            db.RoomFiles.Add(model);
+            db.SaveChanges();
+
+            return RedirectToAction("Edit", new { id = model.RoomID });
+
+            }
+            else
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+        }
+
+
+        [HttpPost]
+        public ActionResult DeleteFile(int id)
+        {
+
+            return null;
+        }
+
+
 
         protected override void Dispose(bool disposing)
         {

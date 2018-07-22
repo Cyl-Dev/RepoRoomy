@@ -81,7 +81,7 @@
     {
         <div class="col-md-3">
             <img class = "img-thumbnail" src="data:@file.ContentType;base64, @System.Convert.ToBase64String(file.Content)" height="256" />
-            <p>@file.Name<a href="@Url.Action("Edit", new { id=file.ID })" class="btn btn-danger"><i class="fa fa-remove"></i></a></p>
+            <p>@file.Name<a href="@Url.Action("DeleteFile", new { id=file.ID })" class="btn btn-danger"><i class="fa fa-remove"></i></a></p>
         </div>
     }
 </div>

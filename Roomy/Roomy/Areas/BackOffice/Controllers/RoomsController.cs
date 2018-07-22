@@ -176,11 +176,18 @@ namespace Roomy.Areas.BackOffice.Controllers
         }
 
 
-        [HttpPost]
+        [HttpGet]
         public ActionResult DeleteFile(int id)
         {
+            RoomFile roomFile = db.RoomFiles.Find(id);
 
-            return null;
+            var roomID = roomFile.RoomID;
+
+            db.RoomFiles.Remove(roomFile);
+            db.SaveChanges();
+
+            return RedirectToAction("Edit", new { id = roomID });
+            //return null;
         }
 
 

@@ -341,37 +341,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201807171311444_Init.cs" />
-    <Compile Include="Migrations\201807171311444_Init.Designer.cs">
-      <DependentUpon>201807171311444_Init.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201807180822148_AbandonnerColonneCorfirmedPassword.cs" />
-    <Compile Include="Migrations\201807180822148_AbandonnerColonneCorfirmedPassword.Designer.cs">
-      <DependentUpon>201807180822148_AbandonnerColonneCorfirmedPassword.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201807181348549_AddRooms.cs" />
-    <Compile Include="Migrations\201807181348549_AddRooms.Designer.cs">
-      <DependentUpon>201807181348549_AddRooms.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201807191011456_AjoutCategorie.cs" />
-    <Compile Include="Migrations\201807191011456_AjoutCategorie.Designer.cs">
-      <DependentUpon>201807191011456_AjoutCategorie.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201807191022028_categnullable.cs" />
-    <Compile Include="Migrations\201807191022028_categnullable.Designer.cs">
-      <DependentUpon>201807191022028_categnullable.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201807191221375_AddCleEtrangRoomCategory.cs" />
-    <Compile Include="Migrations\201807191221375_AddCleEtrangRoomCategory.Designer.cs">
-      <DependentUpon>201807191221375_AddCleEtrangRoomCategory.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201807191319423_multi.cs" />
-    <Compile Include="Migrations\201807191319423_multi.Designer.cs">
-      <DependentUpon>201807191319423_multi.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201807201335599_AddRoomFile.cs" />
-    <Compile Include="Migrations\201807201335599_AddRoomFile.Designer.cs">
-      <DependentUpon>201807201335599_AddRoomFile.cs</DependentUpon>
+    <Compile Include="Migrations\201807220905230_Init.cs" />
+    <Compile Include="Migrations\201807220905230_Init.Designer.cs">
+      <DependentUpon>201807220905230_Init.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\BaseModel.cs" />
@@ -434,29 +406,8 @@
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201807171311444_Init.resx">
-      <DependentUpon>201807171311444_Init.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201807180822148_AbandonnerColonneCorfirmedPassword.resx">
-      <DependentUpon>201807180822148_AbandonnerColonneCorfirmedPassword.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201807181348549_AddRooms.resx">
-      <DependentUpon>201807181348549_AddRooms.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201807191011456_AjoutCategorie.resx">
-      <DependentUpon>201807191011456_AjoutCategorie.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201807191022028_categnullable.resx">
-      <DependentUpon>201807191022028_categnullable.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201807191221375_AddCleEtrangRoomCategory.resx">
-      <DependentUpon>201807191221375_AddCleEtrangRoomCategory.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201807191319423_multi.resx">
-      <DependentUpon>201807191319423_multi.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201807201335599_AddRoomFile.resx">
-      <DependentUpon>201807201335599_AddRoomFile.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201807220905230_Init.resx">
+      <DependentUpon>201807220905230_Init.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

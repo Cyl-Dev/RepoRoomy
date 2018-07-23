@@ -8,10 +8,13 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Roomy.Data;
+using Roomy.Filters;
 using Roomy.Models;
 
 namespace Roomy.Areas.BackOffice.Controllers
 {
+
+    [AuthenticationFilter]
     public class RoomsController : Controller
     {
         private RoomyDbContext db = new RoomyDbContext();
@@ -23,7 +26,7 @@ namespace Roomy.Areas.BackOffice.Controllers
             return View(rooms.ToList());
         }
 
-        // GET: BackOffice/Rooms/Details/5
+        // GET: BackOffice/Rooms/Details       
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -176,13 +179,15 @@ namespace Roomy.Areas.BackOffice.Controllers
         }
 
 
-        [HttpPost]
+        [HttpGet]
         public ActionResult DeleteFile(int id)
         {
+            RoomFile roomFile = db.RoomFiles.Find(id);
+            db.RoomFiles.Remove(roomFile);
+            db.SaveChanges();
 
-            return null;
+            return RedirectToAction("Edit", new { id = roomFile.RoomID });
         }
-
 
 
         protected override void Dispose(bool disposing)

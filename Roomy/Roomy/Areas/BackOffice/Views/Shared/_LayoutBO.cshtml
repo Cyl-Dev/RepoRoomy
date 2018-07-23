@@ -1,6 +1,6 @@
-﻿
-@{
+﻿@{
     Layout = null;
+    var user = Session["USER_BO"] as Roomy.Models.User;
 }
 
 <!DOCTYPE html>
@@ -56,8 +56,17 @@
                     <li class="nav-item">
                         <a class="nav-link" href="@Url.RouteUrl("AboutRoute")">A Propros</a>
                     </li>
+
                 </ul>
+
+                <span class="navbar-text">
+                    Bijour @user.FirstName @user.LastName <a href="@Url.Action("Logout", "Authentication")" class="btn btn-warning btn-sm"><i class="fa fa-eject"></i></a>
+                </span>
             </div>
+
+
+
+
         </nav>
 
 
@@ -67,7 +76,6 @@
         <footer class="bg-info text-white">
             &copy; <s>POEC</s> Formation tout court - Rouen 2018
         </footer>
-
 
     </div>
 

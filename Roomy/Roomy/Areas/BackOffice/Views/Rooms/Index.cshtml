@@ -4,6 +4,9 @@
     ViewBag.Title = "Index";
 }
 
+
+
+
 <h2>Liste des salles</h2>
 
 <p>
@@ -38,41 +41,42 @@
         <th width="99"></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.User.LastName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Category.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Capacity)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Price)
-        </td>
-        <td>
-            @*  @(new HtmlString(item.Description)) *@
-            @Html.Raw(item.Description)
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.User.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Category.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Capacity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @*  @(new HtmlString(item.Description)) *@
+                @Html.Raw(item.Description)
 
 
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CreatedAt)
-        </td>
-        <td>
-            <a href="@Url.Action("Edit", new { id=item.ID })"><i class="fa fa-edit"></i></a> |
-            <a href="@Url.Action("Details", new { id=item.ID })"><i class="fa fa-search"></i></a> |
-            <a href="@Url.Action("Delete", new { id=item.ID })"><i class="fa fa-trash"></i></a>
-            @* @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })*@
-        </td>
-    </tr>
-}
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedAt)
+            </td>
+            <td>
+                <a href="@Url.Action("Edit", new { id=item.ID })"><i class="fa fa-edit"></i></a> |
+                <a href="@Url.Action("Details", new { id=item.ID })"><i class="fa fa-search"></i></a> |
+                <a href="@Url.Action("Delete", new { id=item.ID })"><i class="fa fa-trash"></i></a>
+                @* @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+                    @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id=item.ID })*@
+            </td>
+        </tr>
+    }
 
 </table>

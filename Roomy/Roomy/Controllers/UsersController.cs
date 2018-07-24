@@ -10,10 +10,8 @@ using Roomy.Utils;
 
 namespace Roomy.Controllers
 {
-    public class UsersController : Controller
+    public class UsersController : BaseController
     {
-        private RoomyDbContext db = new RoomyDbContext();
-
         // GET: Users
         [HttpGet]
         public ActionResult Create()
@@ -58,6 +56,12 @@ namespace Roomy.Controllers
                 // enregister
                 db.Users.Add(user);
                 db.SaveChanges();
+
+                //Redirection
+                MessageManager.DisplaySuccessMessage(TempData, $"Utlisateur {user.LastName} {user.FirstName} créé");
+
+                //TempData["Message"] = $"Utlisateur {user.LastName} {user.FirstName} créé";
+                return RedirectToAction("Index", "Home");
             }
 
             ViewBag.Civilities = db.Civilities.ToList();

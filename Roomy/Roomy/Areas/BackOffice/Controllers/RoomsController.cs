@@ -10,6 +10,7 @@ using System.Web.Mvc;
 using Roomy.Data;
 using Roomy.Filters;
 using Roomy.Models;
+using Roomy.Utils;
 
 namespace Roomy.Areas.BackOffice.Controllers
 {
@@ -21,7 +22,7 @@ namespace Roomy.Areas.BackOffice.Controllers
 
         // GET: BackOffice/Rooms
         public ActionResult Index()
-        {
+        {        
             var rooms = db.Rooms.Include(r => r.User).Include(r => r.Category);
             return View(rooms.ToList());
         }
@@ -62,11 +63,13 @@ namespace Roomy.Areas.BackOffice.Controllers
             {
                 db.Rooms.Add(room);
                 db.SaveChanges();
+                this.DisplaySuccessMessage("La room a bien été créée");
                 return RedirectToAction("Index");
             }
 
             ViewBag.UserID = new SelectList(db.Users, "ID", "LastName", room.UserID);
             ViewBag.CategoryID = new SelectList(db.Categories, "ID", "Name", room.CategoryID);
+            
             return View(room);
         }
 
@@ -88,12 +91,8 @@ namespace Roomy.Areas.BackOffice.Controllers
             }
             ViewBag.UserID = new SelectList(db.Users, "ID", "LastName", room.UserID);
             ViewBag.CategoryID = new SelectList(db.Categories, "ID", "Name", room.CategoryID);
-
-
+           
             //room.Files = rf.ToList();
-
-
-
             return View(room);
         }
 
@@ -112,13 +111,13 @@ namespace Roomy.Areas.BackOffice.Controllers
             {
                 db.Entry(room).State = EntityState.Modified;
                 db.SaveChanges();
+                this.DisplaySuccessMessage("La room a bien été modifier");
                 return RedirectToAction("Index");
             }
             ViewBag.UserID = new SelectList(db.Users, "ID", "LastName", room.UserID);
             ViewBag.CategoryID = new SelectList(db.Categories, "ID", "Name", room.CategoryID);
 
-            // ViewBag.Files = new SelectList(db.RoomFiles, "ID", "Name", room.CategoryID);
-
+            // ViewBag.Files = new SelectList(db.RoomFiles, "ID", "Name", room.CategoryID);           
             return View(room);
         }
 
@@ -145,6 +144,7 @@ namespace Roomy.Areas.BackOffice.Controllers
             Room room = db.Rooms.Find(id);
             db.Rooms.Remove(room);
             db.SaveChanges();
+            this.DisplaySuccessMessage("La room a bien été supprimée");
             return RedirectToAction("Index");
         }
 
@@ -154,21 +154,21 @@ namespace Roomy.Areas.BackOffice.Controllers
             if (upload.ContentLength > 0)
             { 
 
-            var model = new RoomFile();
+                var model = new RoomFile();
 
-            model.RoomID = id;
-            model.Name = upload.FileName;
-            model.ContentType = upload.ContentType;
+                model.RoomID = id;
+                model.Name = upload.FileName;
+                model.ContentType = upload.ContentType;
 
-            using (var reader = new BinaryReader(upload.InputStream) )
-            {
-                model.Content = reader.ReadBytes(upload.ContentLength);
-            }
+                using (var reader = new BinaryReader(upload.InputStream) )
+                {
+                    model.Content = reader.ReadBytes(upload.ContentLength);
+                }
 
-            db.RoomFiles.Add(model);
-            db.SaveChanges();
-
-            return RedirectToAction("Edit", new { id = model.RoomID });
+                db.RoomFiles.Add(model);
+                db.SaveChanges();
+                this.DisplaySuccessMessage("Le fichier a bien été ajouté");
+                return RedirectToAction("Edit", new { id = model.RoomID });
 
             }
             else
@@ -186,6 +186,7 @@ namespace Roomy.Areas.BackOffice.Controllers
             db.RoomFiles.Remove(roomFile);
             db.SaveChanges();
 
+            this.DisplaySuccessMessage("Le fichier a bien été supprimé");
             return RedirectToAction("Edit", new { id = roomFile.RoomID });
         }
 

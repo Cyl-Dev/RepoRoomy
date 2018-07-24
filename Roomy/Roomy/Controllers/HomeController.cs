@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Roomy.Utils;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,6 +12,8 @@ namespace Roomy.Controllers
         // GET: Home
         public ActionResult Index()
         {
+            // MessageManager.DisplayErrorMessage(TempData, "Test du système !!!!");
+            // this.DisplaySuccessMessage("Test du système 2!!!!");
             return View();
         }
 
